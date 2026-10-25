@@ -1,13 +1,14 @@
 # handy_string - single header C library for strings
 
-It implements strings using "fat string pointers" holding pointer to a buffer, size, capacity. 
+It implements strings using "Fat Pointer String" holding pointer to a buffer, size, capacity. 
 
-### Fat Pointers for Strings in C
+### Fat Pointer Strings
 
-Standard C strings (`char*`) store only memory address of the first character and rely on a null terminator `\0` byte to mark the end of the string. This design frequently leads to safety issues and performance bottlenecks.
+Standard C strings (`char*`) store only memory address of the first character and rely on `\0` byte to mark the end of the string. This design frequently leads to safety issues and performance bottlenecks.
 
-A **fat pointer** pattern wraps the raw string memory address with its metadata (such as length, capacity) inside a unified structure.
+A fat pointer string pattern wraps the string memory address with its metadata (length, capacity) inside a structure.
 
+### Standard C String vs. Fat Pointer String
 | Feature | Standard C String (`char*`) | Fat Pointer String |
 | :--- | :--- | :--- |
 | **Length Retrieval** | **O(N)** Must scan sequentially via `strlen`. | **O(1)** Kept as metadata. |
