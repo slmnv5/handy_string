@@ -1,0 +1,20 @@
+
+# Compilation & Dependency Files
+*.o
+*.obj
+*.d
+
+# Static & Shared Libraries
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+
+# Compiled Executables & Debug Paths
+*.bin
+*.out
+*.exe
+*.dSYM/
+
+ 
