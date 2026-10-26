@@ -7,18 +7,18 @@
 #include <string.h>
 
 /**
-* A read-only reference to a string slice.
-* Memory belongs to an external owner.
-*/
+ * A read-only reference to a string slice.
+ * Memory belongs to an external owner.
+ */
 typedef struct {
   const char *data;
   size_t len;
 } str_view_t;
 
 /**
-* A mutable string buffer of fixed size. 
-* Memory belongs to this struct.
-*/
+ * A mutable string buffer of fixed size.
+ * Memory belongs to this struct.
+ */
 typedef struct {
   char *data;
   size_t len;
@@ -69,9 +69,9 @@ str_view_t str_view_between(str_view_t src, str_view_t m1, str_view_t m2);
 void str_buf_to_upper(str_buf_t *str);
 
 /**
-* Trims leading and trailing whitespace from a view without modifying original memory.
-* @return A new str_view_t representing the stripped slice.
-*/
+ * Trims leading and trailing whitespace from a view without modifying original memory.
+ * @return A new str_view_t representing the stripped slice.
+ */
 str_view_t str_view_strip(str_view_t view);
 
 /**
@@ -87,11 +87,6 @@ bool str_buf_append(str_buf_t *dest, str_view_t src);
  * Return count of string views in array. -1 if error (e.g., invalid list pointer).
  */
 int str_view_array_fill(str_view_t *arr, size_t arr_size, str_view_t input, str_view_t delim);
-
-/**
- * Returns true if equal.
- */
-bool str_view_equal(str_view_t view, const char *cstr);
 
 #endif // HANDY_STRING_H
 
@@ -251,18 +246,6 @@ int str_view_array_fill(str_view_t *arr, size_t arr_size, str_view_t input, str_
   }
 
   return count;
-}
-
-bool str_view_equal(str_view_t view, const char *cstr) {
-  if (cstr == NULL) {
-    return false;
-  }
-
-  if (view.len != strlen(cstr)) {
-    return false;
-  }
-
-  return memcmp(view.data, cstr, view.len) == 0;
 }
 
 #endif // HANDY_STRING_IMPLEMENTATION
