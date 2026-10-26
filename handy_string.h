@@ -253,7 +253,7 @@ int str_view_array_fill(str_view_t *arr, size_t arr_size, str_view_t input, str_
   return count;
 }
 
-bool str_view_eq_cstr(str_view_t view, const char *cstr) {
+bool str_view_equal(str_view_t view, const char *cstr) {
   if (cstr == NULL) {
     return false;
   }
